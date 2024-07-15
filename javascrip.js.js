@@ -1,5 +1,4 @@
 // scripts.js
-
 document.addEventListener("DOMContentLoaded", function() {
     const salesTrendCtx = document.getElementById('salesTrendChart').getContext('2d');
     const categoryPopularityCtx = document.getElementById('categoryPopularityChart').getContext('2d');
@@ -72,11 +71,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 label: 'Category Popularity',
                 data: [120, 150, 90, 130, 70],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                    'rgba(255, 99, 132, 0.6)',   // Pinkish-Red
+                    'rgba(54, 162, 235, 0.6)',   // Sky Blue
+                    'rgba(255, 206, 86, 0.6)',   // Yellow
+                    'rgba(75, 192, 192, 0.6)',   // Teal
+                    'rgba(153, 102, 255, 0.6)' 
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -102,18 +101,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 label: 'Geographic Distribution',
                 data: [40, 30, 20, 5, 5],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                    'rgba(255, 99, 132, 0.5)',   // Pinkish-Red
+                        'rgba(54, 162, 235, 0.6)',   // Sky Blue
+                        'rgba(255, 206, 86, 0.6)',   // Yellow
+                        'rgba(75, 192, 192, 0.6)',   // Teal
+                        'rgba(153, 102, 255, 0.6)'  
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
+                    'rgba(255, 99, 132, 1)',   // Pinkish-Red
+                        'rgba(54, 162, 235, 1)',   // Sky Blue
+                        'rgba(255, 206, 86, 1)',   // Yellow
+                        'rgba(75, 192, 192, 1)',   // Teal
+                        'rgba(153, 102, 255, 1)'
                 ],
                 borderWidth: 1
             }]
@@ -132,10 +131,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 label: 'Seasonal Trends',
                 data: [25, 35, 20, 20],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)'
+                    'rgba(255, 99, 132, 0.5)',   // Pinkish-Red
+                        'rgba(54, 162, 235, 0.6)',   // Sky Blue
+                        'rgba(255, 206, 86, 0.6)',   // Yellow
+                        'rgba(75, 192, 192, 0.6)',   // Teal
+                        'rgba(153, 102, 255, 0.6)'  
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',

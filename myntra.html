@@ -15,7 +15,37 @@
             color: #333;
             margin: 0;
             padding: 0;
+            background-image: url('https://www.voirfashion.co.uk/wp-content/uploads/2020/12/Front-cover-1920x1267.jpg');
+            
         }
+        p {
+            font-family: 'Lora', serif;/* Custom font family for paragraphs */
+            font-size: 40px; /* Custom font size */
+            font-style: italic; /* Italic style */
+            line-height: 1.5; /* Adjust line height */
+            color: #666; /* Custom text color */
+            margin-bottom: 20px; /* Add some bottom margin for spacing */
+        }
+        .moving-paragraph {
+            font-size: 35px;
+            color: #333;
+            margin-top: 20px;
+            position: relative;
+            animation: moveHorizontal 4s linear infinite; /* Apply animation */
+        }
+
+        @keyframes moveHorizontal {
+            0% {
+                left: 0; /* Start position */
+            }
+            50% {
+                left: 100px; /* Midpoint position */
+            }
+            100% {
+                left: 0; /* End position */
+            }
+        }
+       
 
         .navbar {
             display: flex;
@@ -71,14 +101,8 @@
             padding: 10px;
         }
 
-        .hero {
-            padding: 20px;
-        }
 
-        .hero img {
-            width: 100%;
-            height: auto;
-        }
+       
     </style>
 </head>
 
@@ -95,12 +119,17 @@
             <li><a href="#"><i class="fas fa-search"></i></a></li>
             <li><a href="#"><i class="fas fa-home"></i></a></li>
         </ul>
+   </div>
+   <div class="background-image">
+    <div class="text-overlay">
+        <p class="moving-paragraph">
+            Step into the future of style: Uncover what's trending now.
+        <p>
     </div>
+</div>
+   
 
-    <div class="hero">
-        <img src="https://www.voirfashion.co.uk/wp-content/uploads/2020/12/Front-cover-1920x1267.jpg" alt="Hero Image">
-    </div>
-
+   
     <script>
         
         document.querySelector('.menu li:nth-child(1) a').addEventListener('click', function(event) {

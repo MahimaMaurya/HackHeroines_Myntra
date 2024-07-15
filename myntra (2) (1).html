@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="myntra.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.voirfashion.co.uk/wp-content/uploads/2020/12/Front-cover-1920x1267.jpg');
+            
+        }
+        p {
+            font-family: 'Lora', serif;/* Custom font family for paragraphs */
+            font-size: 40px; /* Custom font size */
+            font-style: italic; /* Italic style */
+            line-height: 1.5; /* Adjust line height */
+            color: #666; /* Custom text color */
+            margin-bottom: 20px; /* Add some bottom margin for spacing */
+        }
+        .moving-paragraph {
+            font-size: 35px;
+            color: #333;
+            margin-top: 20px;
+            position: relative;
+            animation: moveHorizontal 4s linear infinite; /* Apply animation */
+        }
+
+        @keyframes moveHorizontal {
+            0% {
+                left: 0; /* Start position */
+            }
+            50% {
+                left: 100px; /* Midpoint position */
+            }
+            100% {
+                left: 0; /* End position */
+            }
+        }
+       
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #787f87;
+            padding: 10px 20px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .menu li {
+            margin: 0 15px;
+        }
+
+        .navbar .menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 14px 16px;
+        }
+
+        .navbar .menu li a.active {
+            font-weight: bold;
+        }
+
+        .navbar .right-icons {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .right-icons li {
+            margin-left: 20px;
+        }
+
+        .navbar .right-icons li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+
+       
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">Trend Z</div>
+        <ul class="menu">
+            <li><a class="active" href="myntra(2)(1).html">Home</a></li>
+            <li><a href="leaderboard(2).html">Leaderboard</a></li>
+            <li><a href="in.html">Reports</a></li>
+        </ul>
+        <ul class="right-icons">
+            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="#"><i class="fas fa-search"></i></a></li>
+            <li><a href="#"><i class="fas fa-home"></i></a></li>
+        </ul>
+   </div>
+   <div class="background-image">
+    <div class="text-overlay">
+        <p class="moving-paragraph">
+            Step into the future of style: Uncover what's trending now.
+        <p>
+    </div>
+</div>
+   
+
+   
+    <script>
+        
+        document.querySelector('.menu li:nth-child(1) a').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            console.log('Clicked Home');
+            
+        });
+
+        document.querySelector('.menu li:nth-child(2) a').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            console.log('Clicked Leaderboard');
+            
+        });
+
+        document.querySelector('.menu li:nth-child(3) a').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            console.log('Clicked Reports');
+            
+        });
+
+        document.querySelector('.right-icons li:nth-child(1) a').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            console.log('Clicked Cart');
+            
+        });
+
+        document.querySelector('.right-icons li:nth-child(2) a').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            console.log('Clicked Search');
+            
+        });
+
+        document.querySelector('.right-icons li:nth-child(3) a').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            console.log('Clicked Home Icon');
+            
+        });
+    </script>
+</body>
+</html>

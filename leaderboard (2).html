@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <title>Horizontal Auto-Scrolling Data</title>
+    <style>
+        :root {
+            --primary-color: #0096ff;
+            --secondary-color: #7c421c;
+            --background-color: #f4f4f4;
+            --button-color: #7c421c;
+            --button-hover-color: #7c421c;
+            --light-border-color: #e0e0e0;
+            --text-dark: #333;
+            --text-light: #666;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #F5F5DC;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #F5F5DC;
+            padding: 10px 20px;
+            width: 100%; /* Full width of the viewport */
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+        }
+
+        .navbar .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .menu li {
+            margin: 0 15px;
+        }
+
+        .navbar .menu li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 16px;
+            padding: 14px 16px;
+        }
+
+        .navbar .menu li a.active {
+            font-weight: bold;
+        }
+
+        .navbar .right-icons {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .right-icons li {
+            margin-left: 20px;
+        }
+
+        .navbar .right-icons li a {
+            color: rgb(10, 10, 10);
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            background-color: #F5F5DC;
+            padding: 5px;
+        }
+
+        .scroll-content {
+            white-space: nowrap;
+            animation: scroll-left 30s linear infinite;
+            background-color: #F5F5DC;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .scroll-item {
+            display: inline-block;
+            min-width: 200px;
+            padding: 10px;
+            background-color: var(--secondary-color);
+            margin-right: 10px;
+            vertical-align: top;
+            box-sizing: border-box;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            color: white; /* White text color */
+        }
+
+        .section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .left-side {
+            flex: 1;
+            max-width: 50%;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .right-side {
+            flex: 1;
+            max-width: 50%;
+            margin-left: 10px;
+            box-sizing: border-box;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-y: auto;
+            border: 1px solid var(--light-border-color);
+            background-color: #7a6d61;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            position: relative; 
+        }
+
+        .table-container table {
+            width: 100%;
+            border-collapse: collapse;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 6px; /* Match the table border radius with the container */
+            overflow: hidden; /* Hide any overflow outside the table */
+        }
+
+        .table-container th,
+        .table-container td {
+            padding: 8px;
+            border: 1px solid var(--light-border-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background-color: #594436;
+            text-align: center;
+        }
+
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .box {
+            width: calc(50% - 10px);
+            margin-bottom: 10px;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #F5F5DC;
+            border-radius: 8px;
+        }
+
+        .box img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .box h3 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+
+        .box p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .navigation button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: var(--button-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation button:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        .navigation .separator {
+            display: inline-block;
+            width: 1px;
+            height: 20px;
+            background-color: var(--light-border-color);
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Trend Z</div>
+        <ul class="menu">
+            <li><a  href="myntra.html">Home</a></li>
+            <li><a  class="active"href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+        <ul class="right-icons">
+            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="#"><i class="fas fa-search"></i></a></li>
+            <li><a href="#"><i class="fas fa-home"></i></a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <div class="scroll-item">#1 Shirts</div>
+                <div class="scroll-item">#2 Jeans</div>
+                <div class="scroll-item">#3 T-Shirts</div>
+                <div class="scroll-item">#4 Shoes</div>
+                <div class="scroll-item">#5 Skirts</div>
+                <div class="scroll-item">#6 Co-ord Sets</div>
+                <div class="scroll-item">#7 Anarkali Suits</div>
+                <div class="scroll-item">#8 Accessories</div>
+                <div class="scroll-item">#9 Bags</div>
+                <div class="scroll-item">#10 Jackets</div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button onclick="shuffleAll()">Daily</button>
+            <span class="separator">|</span>
+            <button onclick="shuffleAll()">Monthly</button>
+        </div>
+
+        <div class="section">
+            <div class="left-side">
+                <h2>Trending Nowadays</h2>
+                <div class="box-container" id="box-container">
+                    <div class="box">
+                        <img src="https://baesicworld.com/cdn/shop/files/167903775247d4138d47b7709e1ef912792f28acbd_thumbnail_900x_8c02a81b-f91d-4425-a08d-35b196624487.webp?v=1697128700" alt="Image 1">
+                        <h3>HERE&NOW</h3>
+                            <h5>Men Black Slim Fit Casual Shirt</h5>
+                        <p>Black solid opaque Casual shirt, button placket, short regular sleeves, straight hem</p>
+                    </div>
+                    <div class="box">
+                        <img src="https://images.squarespace-cdn.com/content/v1/594d27704c8b03ee08bf12bd/1622325790491-RBQN2NSZMAFUIISXOJ2M/LTK+Hero_71a16c03-cc89-4148-baaf-80dbff347208.jpg" alt="image2">
+                        <h3>StyleCast</h3>
+                        <h5>Printed Flared Midi length Skirt</h5>
+                        <p>Navy Blue printed flared Midi skirt, has an elasticated waistband slip-on closure, and a flared hem</p>
+                    </div>
+                    <div class="box">
+                        <img src="https://veirdo.in/cdn/shop/files/b_0119493a-9927-4550-8323-baefe5f625c0.jpg?v=1716202861" alt="Image 3">
+                        <h3>MASCLN SASSAFRAS</h3>
+                        <h5>Unisex Graphic Printed Oversize T-shirt</h5>
+                        <p>Black Tshirt for unisex Typography printed Regular length Round Neck Short, Regular sleeves</p>
+                    </div>
+                    <div class="box">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLVLr9AvnplsOEJlQUoiRS8RHEn32sv8DmVA&s" alt="Image 4">
+                        <h3>Flying Machine</h3>
+                        <h5>Women Blue Straight Fit Jeans</h5>
+                        <p>Light shade, no fade blue jeans Straight fit, mid-rise Clean look</p>
+                    </div>
+                    <div class="box">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRrKHHKgedhdMkDhCinhv3nDldU3VorirBsA&s" alt="Image 5">
+                        <h3>Nike</h3>
+                        <h5>Air Jordan 1 Retro Women's Shoes</h5>
+                        <p>Premium materials, soft cushioning and a padded ankle collar offer total support and celebrate the shoe that started it all.</p>
+                    </div>
+                    <div class="box">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW0dJwxR5dPXAL-i4wDTpQnIopnEK-leVEmQ&s" alt="Image 6">
+                        <h3>Van Heusen</h3>
+                        <h5>Sling Bag</h5>
+                        <p>Grey solid sling bag with a detachable sling strap</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <h2>Leaderboard</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20px;">Sr.No</th>
+                                <th>Fashion Trend</th>
+                                <th>Popularity Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- JavaScript will populate rows here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to shuffle array elements randomly
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to shuffle boxes randomly
+        function shuffleBoxes() {
+            const boxContainer = document.getElementById('box-container');
+            const boxes = Array.from(boxContainer.getElementsByClassName('box'));
+            shuffleArray(boxes).forEach(box => {
+                boxContainer.appendChild(box);
+            });
+        }
+
+        // Function to shuffle table rows randomly
+        function shuffleTableRows() {
+            const tableBody = document.getElementById('table-body');
+            const rows = Array.from(tableBody.getElementsByTagName('tr'));
+            shuffleArray(rows).forEach(row => {
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to shuffle all elements
+        function shuffleAll() {
+            shuffleBoxes();
+            shuffleTableRows();
+        }
+
+        // Function to generate random data for table rows
+       // Function to generate random data for table rows
+function generateTableRows() {
+    const tableBody = document.getElementById('table-body');
+    let rowsHTML = '';
+    const trends = ['Brocade Jumpsuit', 'Luxury Pajama', ' Frilly Saree', 'Chunky loafer', 'Statement belt', 'Boiler Suit', 'Maxie', 'Hot Goth', 'Shacket', 'Crop-Jacket'];
+
+    // Shuffle the trends array for randomization
+    shuffleArray(trends);
+
+    for (let i = 0; i < 25; i++) {
+        // Generate a random popularity score between 50 and 100
+        const popularityScore = Math.floor(Math.random() * 51) + 50;
+
+        rowsHTML += `
+            <tr>
+                <td>${i + 1}</td>
+                <td>${trends[i % trends.length]}</td>
+                <td>${popularityScore}%</td>
+            </tr>
+        `;
+    }
+    tableBody.innerHTML = rowsHTML;
+}
+
+
+        // Call generateTableRows() on page load
+        window.onload = function() {
+            generateTableRows();
+        };
+
+        // Function to scroll left within scroll-content element
+        function scrollLeft() {
+            const scrollContent = document.querySelector('.scroll-content');
+            scrollContent.style.animationDirection = 'reverse';
+        }
+
+        // Function to scroll right within scroll-content element
+        function scrollRight() {
+            const scrollContent = document.querySelector('.scroll-content');
+            scrollContent.style.animationDirection = 'normal';
+        }
+    </script>
+</body>
+</html>

@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="styles.css.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <div class="navbar-left">
-                <a href="#" class="back-button">&larr; Back</a>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button>Search</button>
-            </div>
-        </nav>
-    </header>
 
-           
+    <div class="navbar">
+        <div class="logo">Trend Z</div>
+        <ul class="menu">
+            <li><a class="active" href="myntra.html">Home</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+        <ul class="right-icons">
+            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="#"><i class="fas fa-search"></i></a></li>
+            <li><a href="#"><i class="fas fa-home"></i></a></li>
+        </ul>
+    </div>
+
+
+
         <div class="content">
             <div class="chart-container">
                 <canvas id="salesTrendChart"></canvas>
@@ -40,6 +44,10 @@
                 <canvas id="barChart"></canvas>
             </div>
     </div>
+    <footer>
+        <!-- Footer content -->
+        &copy; 2024 Your Trends Z   All rights reserved.
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="javascrip.js.js"></script>
 </body>

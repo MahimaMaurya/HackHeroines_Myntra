@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css.css">
 </head>
 <body>
-    <div class="dashboard">
+    <header class="header">
         <nav class="navbar">
-            <a href="#" class="back-button">← Back</a>
+            <div class="navbar-left">
+                <a href="#" class="back-button">&larr; Back</a>
+            </div>
             <div class="search-bar">
                 <input type="text" placeholder="Search...">
-                <button type="button">Search</button>
+                <button>Search</button>
             </div>
-
-            <h1>Dashboard</h1>
         </nav>
+    </header>
+
+           
         <div class="content">
             <div class="chart-container">
                 <canvas id="salesTrendChart"></canvas>
@@ -38,6 +41,7 @@
             </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="javascript.js"></script>
+    <script src="javascrip.js.js"></script>
 </body>
 </html>
+

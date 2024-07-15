@@ -1,11 +1,15 @@
 
-ody {
+
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgb(251, 210, 251);
-}
+    background-image: url('https://st.depositphotos.com/68721766/58346/i/450/depositphotos_583461364-stock-photo-colorful-pastel-floral-minimalist-aesthetic.jpg.jpg');
+   /* Cover the entire background */
+   background-size: cover; 
+   height: 120vh;
+        
 
 .navbar {
     display: flex;
@@ -163,7 +167,29 @@ ody {
     text-decoration: none;
     font-size: 16px;
     padding: 10px;
+
+
 }
+.navbar .cart-icon {
+    position: relative;
+}
+
+.navbar .cart-icon .fa-shopping-cart {
+    font-size: 24px;
+}
+
+.navbar .cart-icon .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+}
+
+
 footer {
     background-color:#787f87;
     color: #fff;
@@ -177,7 +203,7 @@ footer {
 
 .content {
     flex: 1;
-    display: grid;
+    display:grid;
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem;
@@ -195,31 +221,33 @@ footer {
 
 /* Styling for individual chart containers with equal width and height */
 #salesTrendChartContainer {
-    width: 250px;
-    height: 400px;
+    width: 350px;
+    height:350px;
 }
 
 #categoryPopularityChartContainer {
-    height: 300px;
-    width: 361px;
+    height: 350px;
+    width: 350px;
 }
 
 #geographicDistributionChartContainer {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
 }
 
 #seasonalTrendsChartContainer {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
 }
 #barChart{
      
        
+    border-radius: 8px;
+    width: 800px;
+    height: 450px;
+
+       
         
-        width:500px;
-        height: 200px;
-        max-width:max-content;
        
     
 }
@@ -247,4 +275,4 @@ canvas#categoryPopularityChart {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
+}

@@ -1,6 +1,5 @@
 // scripts.js
 
-
 document.addEventListener("DOMContentLoaded", function() {
     const salesTrendCtx = document.getElementById('salesTrendChart').getContext('2d');
     const categoryPopularityCtx = document.getElementById('categoryPopularityChart').getContext('2d');
@@ -26,6 +25,42 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
+
+
+    document.querySelector('.right-icons li:nth-child(1) a').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        console.log('Clicked Cart');
+        
+    });
+
+    document.querySelector('.right-icons li:nth-child(2) a').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        console.log('Clicked Search');
+        
+    });
+
+    document.querySelector('.right-icons li:nth-child(3) a').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        console.log('Clicked Home Icon');
+        
+    });
+    document.querySelector('.right-icons li:nth-child(1) a').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        console.log('Clicked Cart');
+        
+    });
+
+    document.querySelector('.right-icons li:nth-child(2) a').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        console.log('Clicked Search');
+        
+    });
+
+    document.querySelector('.right-icons li:nth-child(3) a').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        console.log('Clicked Home Icon');
+        
+    });
             // Create the line chart
             
 
@@ -138,7 +173,7 @@ const barChart = new Chart(ctx, {
             data: values,
             backgroundColor: 'rgba(54, 162, 235, 0.6)', // Blue bars with opacity
             borderColor: 'rgba(54, 162, 235, 1)', // Border color for bars
-            borderWidth: 1
+            borderWidth: 3
         }]
     },
     options: {
